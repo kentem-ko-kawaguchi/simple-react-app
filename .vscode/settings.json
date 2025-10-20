@@ -1,0 +1,12 @@
+{
+  "biome.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "[typescript][typescriptreact][css][json][jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
+}
