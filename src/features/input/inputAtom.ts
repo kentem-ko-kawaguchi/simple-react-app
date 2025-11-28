@@ -1,14 +1,11 @@
 import { atom, useAtomValue, useSetAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
-// inputの状態を管理するatom（必要なら使用）
-const inputAtom = atom<string>("");
-
 // todoList用のatom
 type Todo = {
     id: number;
     title: string;
-    //deadLine: Date;
+    deadLine: Date; // コメントアウトを解除
     isCompleted: boolean;
 };
 

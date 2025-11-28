@@ -21,7 +21,7 @@ export const DisplayText = () => {
         );
     }
 
-    // 削除していいかの確認をアラートで行う
+    // 削除していいかの確認を行う
     const confirmDelete = (id: number): boolean => {
         let result = window.confirm("本当に削除しますか？");
         if (result) {
@@ -39,14 +39,13 @@ export const DisplayText = () => {
     // 今日の日付を取得
     const today = new Date();
 
-
     return (
         <div>
             {todoValue.map((todo) => (
                 <h2 className="text-2xl text-sky-700 font-bold" key={todo.id}>
                     <div className="flex items-center gap-2">
                         {/* タイトル */}
-                        <span className={todo.isCompleted ? "line-through" : "", todo.deadLine < today ? "text-red-500" : "" }>
+                        <span className={`${todo.isCompleted ? "line-through" : ""} ${todo.deadLine < today ? "text-red-500" : ""}`}>
                             {todo.title}
                         </span>
                         {/* 期限 */}
