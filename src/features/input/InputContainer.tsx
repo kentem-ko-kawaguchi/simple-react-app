@@ -1,20 +1,20 @@
 import { useInputAtom } from "./inputAtom";
 
 export const InputContainer = () => {
-  const { todoValue,setTodoValue } = useInputAtom();
+  const { todoValue, setTodoValue } = useInputAtom();
 
-    const onSubmit = (data: FormData) => {
-        const formData = Object.fromEntries(data.entries());
+  const onSubmit = (data: FormData) => {
+    const formData = Object.fromEntries(data.entries());
 
-        setTodoValue((prev) =>[
-            ...prev,
-            {
-                id: todoValue.length,
-                title: String(formData.title),
-                deadLine: String(formData.deadLine),
-                isCompleted: false
-            }
-        ]);
+    setTodoValue((prev) => [
+      ...prev,
+      {
+        id: todoValue.length,
+        title: String(formData.title),
+        deadLine: new Date(String(formData.deadLine)), // •¶š—ñ‚ğ Date ‚É•ÏŠ·
+        isCompleted: false,
+      },
+    ]);
   };
 
   return (
@@ -24,7 +24,7 @@ export const InputContainer = () => {
         type="text"
         className="p-2 border-2 border-slate-500 rounded"
       />
-      {/* ‚¢‚©‚É Calendar ‚ÅŠúŒÀ‚ğİ’è‚·‚é UI ‚ğ’Ç‰Á */}
+      {/* Calendar ‚ÅŠúŒÀ‚ğİ’è‚·‚é UI */}
       <input
         name="deadLine"
         type="date"
