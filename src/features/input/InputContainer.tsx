@@ -9,6 +9,7 @@ export const InputContainer = () => {
         setTodoValue((prev) =>[
             ...prev,
             {
+                id: todoValue.length,
                 title: String(formData.title),
                 deadLine: String(formData.deadLine),
                 isCompleted: false
