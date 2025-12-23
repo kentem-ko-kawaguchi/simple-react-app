@@ -7,7 +7,7 @@ export const InputContainer = () => {
         const formData = Object.fromEntries(data.entries());
 
         if (!formData.title) {
-            window.confirm("ƒ^ƒCƒgƒ‹‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+            window.confirm("ã‚¿ã‚¤ãƒˆãƒ«ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„");
             return;
         }
 
@@ -15,7 +15,7 @@ export const InputContainer = () => {
             formData.deadLine = String(new Date());
         }
 
-        // Å‘åID‚ğæ“¾‚µ‚Ä+1‚·‚éid•¡‚ğ–h‚®j
+        // æœ€å¤§IDå–å¾—ã—ã¦+1ã—ã¦æ–°ã—ã„idã‚’ä½œæˆ
         const maxId = todoValue.length > 0 ? Math.max(...todoValue.map((t) => t.id)) : -1;
         const newId = maxId + 1;
 
@@ -25,7 +25,7 @@ export const InputContainer = () => {
                 id: newId,
                 title: String(formData.title),
                 detail: String(formData.detail),
-                deadLine: String(formData.deadLine), // •¶š—ñ‚ğ Date ‚É•ÏŠ·
+                deadLine: String(formData.deadLine),
                 isCompleted: false,
             },
         ]);
@@ -35,23 +35,22 @@ export const InputContainer = () => {
         <form className="flex gap-4" action={onSubmit}>
             <input
                 name="title"
-                placeholder="ƒ^ƒCƒgƒ‹"
+                placeholder="ã‚¿ã‚¤ãƒˆãƒ«"
                 type="text"
                 className="p-2 border-2 border-slate-500 rounded"
             />
             <textarea
                 name="detail"
-                placeholder="Ú×"
+                placeholder="èª¬æ˜"
                 className="p-2 border-2 border-slate-500 rounded"
             />
-            {/* Calendar ‚ÅŠúŒÀ‚ğİ’è‚·‚é UI */}
             <input
                 name="deadLine"
                 type="date"
                 className="p-2 border-2 border-slate-500 rounded"
             />
             <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded">
-                ’Ç‰Á
+                ç™»éŒ²
             </button>
         </form>
     );
