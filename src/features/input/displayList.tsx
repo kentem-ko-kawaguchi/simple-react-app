@@ -5,7 +5,7 @@ type CompletionFilter = "all" | "incomplete" | "completed";
 type DeadlineFilter = "all" | "today" | "week" | "month";
 type SortOrder = "asc" | "desc";
 
-export const DisplayText = () => {
+export const DisplayList = () => {
     const { todoValue, setTodoValue } = useInputAtom();
     const [openId, setOpenId] = useState<number | null>(null);
 
@@ -118,7 +118,7 @@ export const DisplayText = () => {
             });
         }
 
-        // 検索フィルター追加
+        // 検索フィルター
         result = result.filter((todo) => 
             todo.title.includes(searchQuery) || 
             todo.detail.includes(searchQuery)
@@ -311,7 +311,7 @@ export const DisplayText = () => {
                 )}
             </div>
 
-            {/* 編集モーダル（共通、1つだけ） */}
+            {/* 編集モーダル */}
             {editId !== null && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center" aria-modal="true" role="dialog">
                     <div className="absolute inset-0 bg-black opacity-50" onClick={() => setEditId(null)} />
